@@ -1,126 +1,352 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>카페마스터AI - 국내최초AI 카페 마케팅 프로그램</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제우스연구소 - 바이럴 마케팅 전문</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    * {
-      font-family: Pretendard, sans-serif;
-    }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #fff;
+            color: #333;
+        }
 
-    .bg-image {
-      background-image: url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-      background-size: cover;
-      background-position: center;
-    }
-  </style>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 50px 0;
+            background-color: #f8e1e6;
+        }
+
+        .logo {
+            width: 120px;
+            margin-bottom: 20px;
+        }
+
+        .main-title {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2em;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s, opacity 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .advantage-section {
+            background-color: #f8f8f8;
+        }
+
+        .process-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .process-step {
+            text-align: center;
+            width: 250px;
+            padding: 20px;
+        }
+
+        .price-table-container {
+            margin: 40px 0;
+        }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        .price-table th, .price-table td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .price-table th {
+            background-color: #f8e1e6;
+        }
+
+        .contact-section {
+            background-color: #f8e1e6;
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .kakao-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .kakao-icon {
+            width: 60px;
+        }
+
+        .qr-code {
+            width: 100px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #6b4ce6;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #5438b7;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: 100%;
+            }
+            
+            .process-step {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .price-table {
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
+<body>
+    <header class="header">
+        <div class="container">
+            <img src="logo.png" alt="제우스연구소 로고" class="logo">
+            <h1 class="main-title">제우스연구소</h1>
+            <p>바이럴 마케팅 제안서</p>
+        </div>
+    </header>
 
-<body class="bg-gray-100">
-  <header class="bg-image h-screen flex items-center justify-center text-white">
-    <div class="text-center">
-      <h1 class="text-6xl font-bold mb-4">카페마스터AI</h1>
-      <p class="text-2xl mb-8">국내최초AI 카페 마케팅 프로그램</p>
-      <a href="#features"
-        class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-blue-100 transition duration-300">자세히
-        알아보기</a>
-    </div>
-  </header>
-
-  <main class="container mx-auto px-4 py-16">
-    <section id="features" class="mb-16">
-      <h2 class="text-4xl font-bold mb-8 text-center">주요 기능</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold mb-4">AI 기반 고객 분석</h3>
-          <p>고객의 선호도와 행동 패턴을 분석하여 맞춤형 마케팅 전략을 제시합니다.</p>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">기존 대행사의 문제점</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>대행사 운영</h3>
+                    <p>대행사에 의존하면 단계마다의 불필요한 비용이 늘어납니다.</p>
+                </div>
+                <div class="card">
+                    <h3>빠른 소통 불가능</h3>
+                    <p>실행사가 원고 작성하고, 수정도 가능하다보니 빠른 피드백이 불가능합니다.</p>
+                </div>
+            </div>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold mb-4">자동화된 소셜 미디어 관리</h3>
-          <p>다양한 소셜 미디어 플랫폼을 통합 관리하고 최적의 시간에 포스팅을 자동화합니다.</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <h3 class="text-xl font-semibold mb-4">실시간 매출 분석</h3>
-          <p>실시간으로 매출을 분석하고 개선 포인트를 제안하여 수익 증대를 돕습니다.</p>
-        </div>
-      </div>
     </section>
 
-    <section id="comparison" class="mb-16">
-      <h2 class="text-4xl font-bold mb-8 text-center">경쟁사 비교</h2>
-      <div class="overflow-x-auto">
-        <table class="w-full bg-white shadow-md rounded-lg">
-          <thead>
-            <tr class="bg-blue-600 text-white">
-              <th class="p-3">기능</th>
-              <th class="p-3">카페마스터AI</th>
-              <th class="p-3">경쟁사 A</th>
-              <th class="p-3">경쟁사 B</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="p-3 border">AI 기반 분석</td>
-              <td class="p-3 border text-center">✅</td>
-              <td class="p-3 border text-center">❌</td>
-              <td class="p-3 border text-center">❌</td>
-            </tr>
-            <tr>
-              <td class="p-3 border">자동화된 소셜 미디어 관리</td>
-              <td class="p-3 border text-center">✅</td>
-              <td class="p-3 border text-center">✅</td>
-              <td class="p-3 border text-center">❌</td>
-            </tr>
-            <tr>
-              <td class="p-3 border">실시간 매출 분석</td>
-              <td class="p-3 border text-center">✅</td>
-              <td class="p-3 border text-center">❌</td>
-              <td class="p-3 border text-center">✅</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <section class="section advantage-section">
+        <div class="container">
+            <h2 class="section-title">제우스연구소만의 장점</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>하나, 저렴한 비용</h3>
+                    <p>직접 실행하기 때문에 중간 유통 과정이 줄어 불필요한 비용이 없습니다.</p>
+                </div>
+                <div class="card">
+                    <h3>둘, 가짜계정 NO!</h3>
+                    <p>충분한 활동을 한 신뢰도 높은 계정으로 효과적인 홍보를 진행합니다.</p>
+                </div>
+                <div class="card">
+                    <h3>셋, 높은 원고 퀄리티</h3>
+                    <p>다년간 노하우로 센스 넘치는 원고로 광고주님 상품을 디테일하게 어필해드립니다.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="contact" class="mb-16">
-      <h2 class="text-4xl font-bold mb-8 text-center">문의하기</h2>
-      <form id="contactForm" class="max-w-lg mx-auto">
-        <div class="mb-4">
-          <label for="name" class="block mb-2">이름</label>
-          <input type="text" id="name" name="name" required class="w-full p-2 border rounded">
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">진행 절차</h2>
+            <div class="process-container">
+                <div class="process-step">
+                    <h3>상담 진행</h3>
+                    <p>키워드, 링크, 예산 설정</p>
+                </div>
+                <div class="process-step">
+                    <h3>계시글 작성</h3>
+                    <p>24시간 실시간 A/S검 제공</p>
+                </div>
+                <div class="process-step">
+                    <h3>다음 날 보고서 전달</h3>
+                    <p>마케팅 결과 정리하여 보고서 전달</p>
+                </div>
+            </div>
         </div>
-        <div class="mb-4">
-          <label for="email" class="block mb-2">이메일</label>
-          <input type="email" id="email" name="email" required class="w-full p-2 border rounded">
-        </div>
-        <div class="mb-4">
-          <label for="message" class="block mb-2">메시지</label>
-          <textarea id="message" name="message" required class="w-full p-2 border rounded" rows="4"></textarea>
-        </div>
-        <button type="submit"
-          class="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition duration-300">보내기</button>
-      </form>
     </section>
-  </main>
 
-  <footer class="bg-gray-800 text-white py-8">
-    <div class="container mx-auto px-4 text-center">
-      <p>&copy; 2023 카페마스터AI. All rights reserved.</p>
-    </div>
-  </footer>
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">서비스 견적</h2>
+            <div class="price-table-container">
+                <h3>1) 커뮤니티 핫딜 바이럴</h3>
+                <table class="price-table">
+                    <tr>
+                        <th>커뮤니티</th>
+                        <th>단가(VAT 별도)</th>
+                        <th>비고</th>
+                    </tr>
+                    <tr>
+                        <td>FM코리아</td>
+                        <td>60,000</td>
+                        <td rowspan="6">AS불가<br>원고제공<br>계시글 1건</td>
+                    </tr>
+                    <tr>
+                        <td>뽐뿌</td>
+                        <td>50,000</td>
+                    </tr>
+                    <tr>
+                        <td>레이션</td>
+                        <td>60,000</td>
+                    </tr>
+                    <tr>
+                        <td>더쿠</td>
+                        <td>50,000</td>
+                    </tr>
+                    <tr>
+                        <td>인스티즈</td>
+                        <td>50,000</td>
+                    </tr>
+                    <tr>
+                        <td>클리앙</td>
+                        <td>70,000</td>
+                    </tr>
+                </table>
+            </div>
 
-  <script>
-    document.getElementById('contactForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      alert('문의가 접수되었습니다. 곧 연락 드리겠습니다.');
-      this.reset();
-    });
-  </script>
+            <div class="price-table-container">
+                <h3>2) 카페 핫딜 바이럴</h3>
+                <table class="price-table">
+                    <tr>
+                        <th>카페</th>
+                        <th>단가(VAT 별도)</th>
+                        <th>비고</th>
+                    </tr>
+                    <tr>
+                        <td>맘이베베</td>
+                        <td>50,000</td>
+                        <td rowspan="6">AS불가<br>원고제공<br>계시글 1건<br>목록 외 카페 요청</td>
+                    </tr>
+                    <tr>
+                        <td>맘스홀릭</td>
+                        <td>30,000</td>
+                    </tr>
+                    <tr>
+                        <td>핫딜언니</td>
+                        <td>30,000</td>
+                    </tr>
+                    <tr>
+                        <td>핫딜노리터</td>
+                        <td>30,000</td>
+                    </tr>
+                    <tr>
+                        <td>루데일</td>
+                        <td>40,000</td>
+                    </tr>
+                    <tr>
+                        <td>디젤매니아</td>
+                        <td>50,000</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-title">카카오톡 오픈채팅 24시간 상담</h2>
+            <p>카카오톡 상담을 통해 빠르게 답변 받으세요!</p>
+            <div class="kakao-container">
+                <img src="kakao-icon.png" alt="카카오톡 아이콘" class="kakao-icon">
+                <img src="qr-code.png" alt="QR 코드" class="qr-code">
+            </div>
+            <a href="#" class="btn">제우스연구소 상담 바로가기</a>
+        </div>
+    </section>
+
+    <script>
+        // 스크롤 애니메이션
+        function checkScroll() {
+            const cards = document.querySelectorAll('.card');
+            const triggerBottom = window.innerHeight * 0.8;
+
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+
+                if (cardTop < triggerBottom) {
+                    card.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkScroll);
+        window.addEventListener('load', checkScroll);
+
+        // 부드러운 스크롤
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
-
 </html>
